@@ -8,3 +8,4 @@ I'm now trying to use front end stuffs to show a cellphone with some basic funct
 - Recorder
 - Camera
 - Stopwatch
+- Timer
