@@ -28,8 +28,10 @@
 					<section class="screen">
 						<div class="taskbar">
 							<span class="signal"></span>
-							<span class="battery"></span>
-							<span class="clock" id="clock" v-text="date | dateToTime">{{date}}</span>
+							<span id="positive"></span>
+							<span class="battery" id="empty"></span>
+							<span class="battery" id="full" v-style="width: w + 'px',background: c"></span>
+							<span class="clock" id="clock" v-text="date | dateToTime 1"></span>
 						</div>
 						<canvas id="screen"></canvas>
 					</section>

@@ -78,19 +78,59 @@ main{
 .screen{
 	width: 24em;
 	height: 42.4em;
-	margin: 0em 0em 0em 1.6em;
+	margin: 0 0 0 1.6em;
 	background: rgb(5, 5, 5);
 }
 
 .taskbar{
-	float: right;
 	color: white;
 	background: rgb(6, 6, 6);
+	width: 24em;
+	height: 2em;
+}
+
+.taskbar span{
+	position: absolute;
+	margin: 0.5em;
+}
+
+span.battery{
+	color: transparent;
+	background: rgb(8, 189, 8);
+	box-shadow: 2px 2px 0px white,-2px 2px 0px white,-2px -2px 0px white,2px -2px 0px white;
+	border-radius: 3px;
+	border: 0 rgb(6, 6, 6) solid;
+	right: 5em;
+	width: 20px;
+	height: 0.7em;
+	margin: 0.6em;
+}
+
+#empty{
+	background: rgb(6, 6, 6);
+}
+
+#full{
+	box-shadow: 0px 0px 0px white,0px 2px 0px white,0px 2px 0px white,0px -2px 0px white;
+	border-radius: 0;
+}
+
+#positive{
+	right: 6.9em;
+	height: 0.5em;
+	background: white;
+	border-radius: 1px;
+	width: 0.2em;
+	margin-top: 0.7em;
+}
+
+.clock{
+	right: 2em;
 }
 
 canvas{
 	width: 24em;
-	height: 41.4em;
+	height: 41.3em;
 }
 
 .sensor{
@@ -144,8 +184,8 @@ canvas{
 .menu{
 	color: rgb(135, 21, 22);
 	left: 7em;
-	margin-top: 2.4em;
-	letter-spacing: -1.5px;
+	margin-top: 2.2em;
+	letter-spacing: -0.3em;
 	-moz-transform: rotate(90deg);
 	-webkit-transform: rotate(90deg);
 	-o-transform: rotate(90deg);
