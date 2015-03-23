@@ -11,8 +11,8 @@ body {
 	font-family: 'Lato', sans-serif;
 	font-size: 12px;
 	background: url('../img/bg.jpg');
-	/*background: url("http://c1.mifile.cn/f/i/2013/cn/note/4.jpg");*/
-	/*background-size: 1057px;*/
+	/*background: url("http://c1.mifile.cn/f/i/2013/cn/note/4.jpg");
+	background-size: 1057px;*/
 	text-align: center;
 }
 
@@ -22,7 +22,7 @@ header {
 
 main{
 	position: absolute;
-	opacity: .5;
+	opacity: 10.5;
 	top: 2em;
 	left:  calc(50% - (28em / 2));
 
@@ -141,9 +141,14 @@ canvas{
 
 .menu{
 	color: rgb(135, 21, 22);
-	left: 5.4em;
-	font-size: 1.2em;
-	margin-top: 1.9em;
+	left: 7em;
+	margin-top: 2.4em;
+	letter-spacing: -1em;
+	-moz-transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
 }
 
 .home{
@@ -156,10 +161,17 @@ canvas{
 }
 
 .back{
-	color: rgb(135, 21, 22);
-	left: 17.4em;
-	font-size: 1.2em;
-	margin-top: 1.9em;
+	width: 6px;
+	height: 6px;
+	left: 21em;
+	margin-top: 2.6em;
+	border-left: 1px rgb(135, 21, 22) solid;
+	border-bottom: 1px rgb(135, 21, 22) solid;
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
 }
 
 .screenoff{
