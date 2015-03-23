@@ -1,18 +1,18 @@
 * {
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
 }
 
 body {
 	font-family: 'Lato', sans-serif;
 	font-size: 12px;
 	background: url('../img/bg.jpg');
-	background: url("http://c1.mifile.cn/f/i/2013/cn/note/4.jpg");
-	background-size: 1057px;
+	/*background: url("http://c1.mifile.cn/f/i/2013/cn/note/4.jpg");*/
+	/*background-size: 1057px;*/
 	text-align: center;
 }
 
@@ -23,8 +23,11 @@ header {
 main{
 	position: absolute;
 	opacity: .5;
-	top: 7px;
-	left: 364px;
+	top: 2em;
+	left:  calc(50% - (28em / 2));
+
+	/*top: 7px;
+	left: 365px;*/
 }
 
 .frame {
@@ -62,20 +65,21 @@ main{
 	background: linear-gradient(-105deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
 }
 
-p span{
-	position: absolute;
-	overflow: hidden;
-}
-
 .head{
 	height: 2.8em;
 	margin-bottom: 0;
+}
+
+.head span{
+	position: absolute;
+	overflow: hidden;
 }
 
 .screen{
 	width: 24em;
 	height: 42.4em;
 	margin: 0em 0em 0em 1.6em;
+	background: rgb(5, 5, 5);
 }
 
 .sensor{
@@ -115,4 +119,41 @@ p span{
 	left: 17.4em;
 	border-radius: 10px;
 	background: rgba(255, 255, 255, 0.13);
+}
+
+.control{
+	height: 6.6em;
+	margin: 0;
+}
+
+.control span{
+	position: absolute;
+}
+
+.control.lock span{
+	color: transparent;
+	border-color: transparent;
+}
+
+.menu{
+	color: rgb(135, 21, 22);
+	left: 5.4em;
+	font-size: 1.2em;
+	margin-top: 1.9em;
+}
+
+.home{
+	width: 9px;
+	height: 9px;
+	border-radius: 3px;
+	border: 1px rgb(135, 21, 22) solid;
+	left: 13.6em;
+	margin-top: 2.4em;
+}
+
+.back{
+	color: rgb(135, 21, 22);
+	left: 17.4em;
+	font-size: 1.2em;
+	margin-top: 1.9em;
 }
