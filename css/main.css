@@ -82,6 +82,15 @@ main{
 	background: rgb(5, 5, 5);
 }
 
+.taskbar{
+	color: white;
+}
+
+canvas{
+	width: 24em;
+	height: 41.4em;
+}
+
 .sensor{
 	width: 5px;
 	height: 5px;
@@ -130,11 +139,6 @@ main{
 	position: absolute;
 }
 
-.control.lock span{
-	color: transparent;
-	border-color: transparent;
-}
-
 .menu{
 	color: rgb(135, 21, 22);
 	left: 5.4em;
@@ -156,4 +160,8 @@ main{
 	left: 17.4em;
 	font-size: 1.2em;
 	margin-top: 1.9em;
+}
+
+.screenoff{
+	display: none;
 }
