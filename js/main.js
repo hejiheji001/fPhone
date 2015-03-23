@@ -1,8 +1,19 @@
 var init = function(){
-	new Vue({
+	var vm = new Vue({
 		el: '#clock',
 		data: {
-			date:
+			date: new Date().getTime()
+		},
+		methods:{
+			getTime: function(){
+				this.date++
+			}
 		}
-	})
+
+	});
+	setInterval(vm.getTime, 1000);
+}
+
+var dateToTime = function(){
+
 }

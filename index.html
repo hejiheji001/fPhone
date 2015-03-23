@@ -29,13 +29,10 @@
 						<div class="taskbar">
 							<span class="signal"></span>
 							<span class="battery"></span>
-							<span class="clock" id="clock" v-text="date">{{date}}</span>
+							<span class="clock" id="clock" v-text="date | dateToTime">{{date}}</span>
 						</div>
 						<canvas id="screen"></canvas>
 					</section>
-					<p class="screen">
-
-					</p>
 					<p class="control">
 						<span class="menu">|||</span>
 						<span class="home"></span>

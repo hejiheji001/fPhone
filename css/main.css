@@ -83,7 +83,9 @@ main{
 }
 
 .taskbar{
+	float: right;
 	color: white;
+	background: rgb(6, 6, 6);
 }
 
 canvas{
@@ -143,7 +145,7 @@ canvas{
 	color: rgb(135, 21, 22);
 	left: 7em;
 	margin-top: 2.4em;
-	letter-spacing: -1em;
+	letter-spacing: -1.5px;
 	-moz-transform: rotate(90deg);
 	-webkit-transform: rotate(90deg);
 	-o-transform: rotate(90deg);
