@@ -11,8 +11,8 @@ body {
 	font-family: 'Lato', sans-serif;
 	font-size: 12px;
 	background: url('../img/bg.jpg');
-	/*background: url("http://c1.mifile.cn/f/i/2013/cn/note/4.jpg");
-	background-size: 1057px;*/
+	background: url("http://c1.mifile.cn/f/i/2013/cn/note/4.jpg");
+	background-size: 1057px;
 	text-align: center;
 }
 
@@ -26,8 +26,8 @@ main{
 	top: 2em;
 	left:  calc(50% - (28em / 2));
 
-	/*top: 7px;
-	left: 365px;*/
+	top: 7px;
+	left: 365px;
 }
 
 .frame {
@@ -94,15 +94,19 @@ main{
 	margin: 0.5em;
 }
 
+.signal{
+
+}
+
 span.battery{
 	color: transparent;
 	background: rgb(8, 189, 8);
-	box-shadow: 2px 2px 0px white,-2px 2px 0px white,-2px -2px 0px white,2px -2px 0px white;
+	box-shadow: 2px 2px 0 white,-2px 2px 0 white,-2px -2px 0 white,2px -2px 0 white;
 	border-radius: 3px;
 	border: 0 rgb(6, 6, 6) solid;
 	right: 5em;
-	width: 20px;
-	height: 0.7em;
+	width: 16px;
+	height: 8px;
 	margin: 0.6em;
 }
 
@@ -111,22 +115,24 @@ span.battery{
 }
 
 #full{
-	box-shadow: 0px 0px 0px white,0px 2px 0px white,0px 2px 0px white,0px -2px 0px white;
+	box-shadow: 0 0 0 white,0 2px 0 white,0 2px 0 white,0 -2px 0 white;
 	border-radius: 0;
 }
 
 #positive{
-	right: 6.9em;
-	height: 0.5em;
-	background: white;
+	right: 6.6em;
+	height: 0.4em;
+	background: rgb(255, 255, 255);
 	border-radius: 1px;
-	width: 0.2em;
+	width: 0.1em;
 	margin-top: 0.7em;
 }
 
 .clock{
 	right: 2em;
 }
+
+
 
 canvas{
 	width: 24em;

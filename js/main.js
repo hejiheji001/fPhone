@@ -19,17 +19,17 @@ var init = function(){
 	var battery = new Vue({
 		el: '#full',
 		data: {
-			w: 20,
+			w: 16,
 			c: 'rgb(8, 189, 8)'
 		},
 		methods: {
 			setBattery: function(){
 				this.w = this.w > 1 ? this.w -= 0.1 : 1;
 
-				if(this.w <= 10){
+				if(this.w <= 8){
 					this.c = 'rgb(255, 255, 0)';
 				}
-				if(this.w <= 5){
+				if(this.w <= 4){
 					this.c = 'rgb(255, 0, 0)';
 				}
 			}
@@ -60,3 +60,7 @@ var init = function(){
 		clock.getTime();
 	}, 1000);
 };
+
+$(function(){
+	init();
+});
