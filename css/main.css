@@ -11,8 +11,8 @@ body {
 	font-family: 'Lato', sans-serif;
 	font-size: 12px;
 	background: url('../img/bg.jpg');
-	background: url("http://c1.mifile.cn/f/i/2013/cn/note/4.jpg");
-	background-size: 1057px;
+	/*background: url("http://c1.mifile.cn/f/i/2013/cn/note/4.jpg");
+	background-size: 1057px;*/
 	text-align: center;
 }
 
@@ -26,8 +26,8 @@ main{
 	top: 2em;
 	left:  calc(50% - (28em / 2));
 
-	top: 7px;
-	left: 365px;
+/*	top: 7px;
+	left: 365px;*/
 }
 
 .frame {
@@ -107,7 +107,7 @@ span.battery{
 	right: 5em;
 	width: 16px;
 	height: 8px;
-	margin: 0.6em;
+	margin: 8px;
 }
 
 #empty{
@@ -121,15 +121,17 @@ span.battery{
 
 #positive{
 	right: 6.6em;
-	height: 0.4em;
+	height: 4px;
 	background: rgb(255, 255, 255);
 	border-radius: 1px;
 	width: 0.1em;
-	margin-top: 0.7em;
+	margin-top: 10px;
 }
 
 .clock{
 	right: 2em;
+	height: 12px;
+	line-height: 12px;
 }
 
 
