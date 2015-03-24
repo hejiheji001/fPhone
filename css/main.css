@@ -8,7 +8,7 @@
 }
 
 body {
-	font-family: 'Noto Sans', sans-serif;
+	/*font-family: 'Noto Sans', sans-serif;*/
 	font-size: 12px;
 	background: url('../img/bg.jpg');
 /*	background: url("http://c1.mifile.cn/f/i/2013/cn/note/4.jpg");
@@ -37,22 +37,22 @@ main{
 	padding-top: calc(1em * 0.02);
 	border-radius: 25px;
 	background: #DBDCDE;
-	background: -moz-linear-gradient(-45deg, rgb(219, 220, 222) 0%, rgb(236, 237, 239) 50%, rgb(237, 238, 240) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgb(219, 220, 222)), color-stop(50%, rgb(236, 237, 239)), color-stop(100%, rgb(237, 238, 240))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(-45deg,  rgb(219, 220, 222) 0%, rgb(236, 237, 239) 50%, rgb(237, 238, 240) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(-45deg,  rgb(219, 220, 222) 0%, rgb(236, 237, 239) 50%, rgb(237, 238, 240) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(-45deg, rgb(219, 220, 222) 0%, rgb(236, 237, 239) 50%, rgb(237, 238, 240) 100%); /* IE10+ */
-	background: linear-gradient(135deg, rgb(219, 220, 222) 0%, rgb(236, 237, 239) 50%, rgb(237, 238, 240) 100%); /* W3C */
+	background: -moz-linear-gradient(-45deg, rgb(232, 231, 230) 0%, rgb(236, 237, 239) 50%, rgb(237, 238, 240) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgb(232, 231, 230)), color-stop(50%, rgb(236, 237, 239)), color-stop(100%, rgb(237, 238, 240))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg,  rgb(232, 231, 230) 0%, rgb(236, 237, 239) 50%, rgb(237, 238, 240) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  rgb(232, 231, 230) 0%, rgb(236, 237, 239) 50%, rgb(237, 238, 240) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg, rgb(232, 231, 230) 0%, rgb(236, 237, 239) 50%, rgb(237, 238, 240) 100%); /* IE10+ */
+	background: linear-gradient(135deg, rgb(232, 231, 230) 0%, rgb(236, 237, 239) 50%, rgb(237, 238, 240) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DBDCDE', endColorstr='#EDEEF0',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
 }
 
 .panel, .light{
 	background: black;
-	width: calc(28em * 0.96);
-	height: calc(55em * 0.96);
-	border-radius: 20px;
-	margin: calc(28em * 0.02);
-	padding-top: calc(1em * 0.7);
+	width: calc(28em * 0.98);
+	height: calc(55em * 0.98);
+	border-radius: 23px;
+	margin: calc(28em * 0.01);
+	padding-top: calc(1em * 0.55);
 }
 
 .light{
@@ -67,6 +67,7 @@ main{
 
 .head{
 	height: 2.8em;
+	margin: 1em;
 	margin-bottom: 0;
 }
 
@@ -94,8 +95,37 @@ main{
 	margin: 0.5em;
 }
 
-.signal{
+.signalLine{
+	overflow: hidden;
+	width: 37px;
+	position: absolute;
+	height: 12px;
+	right: 7em;
+	padding: 0;
+	margin: 6px;
+}
 
+.network{
+	top: -11px;
+	right: 20px;
+	-moz-transform:scale(0.5, 0.5);
+	-webkit-transform:scale(0.5, 0.5);
+	-o-transform:scale(0.5, 0.5);
+	-ms-transform:scale(0.5, 0.5);
+	transform:scale(0.5, 0.5);
+}
+
+span.signal{
+	margin: 0;
+}
+
+.signal:after {
+	content: '';
+	display: block;
+	width: 2px;
+	height: 12px;
+	background: rgba(255, 255, 255, 0.5);
+	box-shadow: white -4px 2px 0px, white -8px 4px 0, white -12px 6px 0, white -16px 8px 0;
 }
 
 span.battery{
@@ -104,7 +134,7 @@ span.battery{
 	box-shadow: 2px 2px 0 white,-2px 2px 0 white,-2px -2px 0 white,2px -2px 0 white;
 	border-radius: 3px;
 	border: 0 rgb(6, 6, 6) solid;
-	right: 5em;
+	right: 6em;
 	width: 16px;
 	height: 8px;
 	margin: 8px;
@@ -120,7 +150,7 @@ span.battery{
 }
 
 #positive{
-	right: 6.6em;
+	right: 7.65em;
 	height: 4px;
 	background: rgb(255, 255, 255);
 	border-radius: 1px;
@@ -130,8 +160,8 @@ span.battery{
 
 .clock{
 	right: 2em;
-	height: 12px;
-	line-height: 12px;
+	line-height: 11px;
+	font-size: 14px;
 }
 
 
@@ -189,19 +219,6 @@ canvas{
 	position: absolute;
 }
 
-.menu{
-/*use ||| in html*/
-/*	color: rgb(135, 21, 22);
-	left: 7em;
-	margin-top: 2.2em;
-	letter-spacing: -0.3em;
-	-moz-transform: rotate(90deg);
-	-webkit-transform: rotate(90deg);
-	-o-transform: rotate(90deg);
-	-ms-transform: rotate(90deg);
-	transform: rotate(90deg);*/
-}
-
 .menu:after {
 	position: absolute;
 	content: '';
@@ -235,6 +252,28 @@ canvas{
 	-o-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
 	transform: rotate(47deg);
+}
+
+.buttons span{
+	position: absolute;
+	background: rgb(232, 231, 230);
+	right: calc((100% - 28em)/2 - 2px);
+	width: 1px;
+	height: 40px;
+	border-left: 1px solid rgb(161, 161, 161);
+	cursor: pointer;
+}
+
+.v-up{
+	top: 10em;
+}
+
+.v-down{
+	top: calc(10em + 40px + 2px);
+}
+
+.power{
+	top: calc(10em + 40px + 40px + 30px);
 }
 
 .screenoff{

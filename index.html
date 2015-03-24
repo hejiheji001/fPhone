@@ -19,29 +19,37 @@
 		<main>
 			<section class="frame">
 				<div class="light"></div>
-				<div class="panel">
-					<p class="head">
+				<section class="panel">
+					<section class="head">
 						<span class="sensor"> </span>
 						<span class="camera"> </span>
 						<span class="speaker">...........</span>
 						<span class="something"> </span>
-					</p>
+					</section>
 					<section class="screen">
-						<div class="taskbar">
-							<span class="signal"></span>
+						<section class="taskbar">
+							<section class="signalLine">
+								<span class="network">4G</span>
+								<span class="signal"></span>
+							</section>
 							<span id="positive"></span>
 							<span class="battery" id="empty"></span>
 							<span class="battery" id="full" v-style="width: w + 'px',background: c"></span>
 							<span class="clock" id="clock" v-text="date | dateToTime 1"></span>
-						</div>
+						</section>
 						<canvas id="screen"></canvas>
 					</section>
-					<p class="control">
+					<section class="control">
 						<span class="menu"></span>
 						<span class="home"></span>
 						<span class="back"></span>
-					</p>
-				</div>
+					</section>
+				</section>
+				<section class="buttons">
+					<span class="v-up"></span>
+					<span class="v-down"></span>
+					<span class="power"></span>
+				</section>
 			</section>
 		</main>
 		<footer>
