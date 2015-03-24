@@ -8,10 +8,10 @@
 }
 
 body {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Noto Sans', sans-serif;
 	font-size: 12px;
 	background: url('../img/bg.jpg');
-	/*background: url("http://c1.mifile.cn/f/i/2013/cn/note/4.jpg");
+/*	background: url("http://c1.mifile.cn/f/i/2013/cn/note/4.jpg");
 	background-size: 1057px;*/
 	text-align: center;
 }
@@ -22,7 +22,7 @@ header {
 
 main{
 	position: absolute;
-	opacity: 10.5;
+	opacity: 0.8;
 	top: 2em;
 	left:  calc(50% - (28em / 2));
 
@@ -190,7 +190,8 @@ canvas{
 }
 
 .menu{
-	color: rgb(135, 21, 22);
+/*use ||| in html*/
+/*	color: rgb(135, 21, 22);
 	left: 7em;
 	margin-top: 2.2em;
 	letter-spacing: -0.3em;
@@ -198,30 +199,42 @@ canvas{
 	-webkit-transform: rotate(90deg);
 	-o-transform: rotate(90deg);
 	-ms-transform: rotate(90deg);
-	transform: rotate(90deg);
+	transform: rotate(90deg);*/
+}
+
+.menu:after {
+	position: absolute;
+	content: '';
+	display: block;
+	width: 10px;
+	height: 1.1px;
+	background: rgb(135, 21, 22);
+	box-shadow: rgb(135, 21, 22) 0px 4px 0px, rgb(135, 21, 22) 0px 8px 0;
+	margin-top: 2.6em;
+	left: -7.38em;
 }
 
 .home{
 	width: 9px;
 	height: 9px;
-	border-radius: 3px;
+	border-radius: 3.3px;
 	border: 1px rgb(135, 21, 22) solid;
-	left: 13.6em;
-	margin-top: 2.4em;
+	left: 13.65em;
+	margin-top: 2.55em;
 }
 
 .back{
 	width: 6px;
 	height: 6px;
 	left: 21em;
-	margin-top: 2.6em;
+	margin-top: 2.68em;
 	border-left: 1px rgb(135, 21, 22) solid;
 	border-bottom: 1px rgb(135, 21, 22) solid;
 	-moz-transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
 	-o-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
+	transform: rotate(47deg);
 }
 
 .screenoff{
