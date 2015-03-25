@@ -16,13 +16,25 @@ Vue.filter('numberToBattery', function (level) {
 });
 
 var init = function(){
-	var battery = new Vue({
-		el: '#full',
+	var frame = new Vue({
+		el: '.frame',
 		data: {
+			taskbar: 'off',
+			control: 'dim',
+			date: new Date(),
 			w: 16,
 			c: 'rgb(8, 189, 8)'
 		},
 		methods: {
+			switchScreen: function(e){
+				setTimeout(function(){
+					this.taskbar = this.taskbar == 'off' ? 'lock' : 'off';
+					this.control = this.control == 'dim' ? 'bright' : 'dim';
+				}, 500);
+			},
+			getTime: function(){
+				this.date = new Date();
+			},
 			setBattery: function(){
 				this.w = this.w > 1 ? this.w -= 0.1 : 1;
 
@@ -36,28 +48,15 @@ var init = function(){
 		}
 	});
 
-	var clock = new Vue({
-		el: '#clock',
-		data: {
-			date: new Date()
-		},
-		methods: {
-			getTime: function(){
-				this.date = new Date();
-			}
-		}
-
-	});
-
 	var power = self.setInterval(function(){
-		battery.setBattery();
-		if(battery.$data.w === 1){
+		frame.setBattery();
+		if(frame.$data.w === 1){
 			window.clearInterval(power);
 		}
 	}, 1000);
 
 	setInterval(function(){
-		clock.getTime();
+		frame.getTime();
 	}, 1000);
 };
 

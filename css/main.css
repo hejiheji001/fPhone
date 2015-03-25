@@ -76,7 +76,7 @@ main{
 	overflow: hidden;
 }
 
-.screen{
+#myScreen{
 	width: 24em;
 	height: 42.4em;
 	margin: 0 0 0 1.6em;
@@ -276,6 +276,19 @@ canvas{
 	top: calc(10em + 40px + 40px + 30px);
 }
 
-.screenoff{
+.off{
 	display: none;
+}
+
+.lock{
+	display: block;
+}
+
+.bright span{
+	border-color: red;
+}
+
+.bright span.menu:after{
+	background: red;
+	box-shadow: red 0px 4px 0px, red 0px 8px 0;
 }

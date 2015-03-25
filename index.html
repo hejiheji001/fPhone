@@ -26,8 +26,8 @@
 						<span class="speaker">...........</span>
 						<span class="something"> </span>
 					</section>
-					<section class="screen">
-						<section class="taskbar">
+					<section id="myScreen">
+						<section class="taskbar" v-class="taskbar">
 							<section class="signalLine">
 								<span class="network">4G</span>
 								<span class="signal"></span>
@@ -37,18 +37,20 @@
 							<span class="battery" id="full" v-style="width: w + 'px',background: c"></span>
 							<span class="clock" id="clock" v-text="date | dateToTime 1"></span>
 						</section>
-						<canvas id="screen"></canvas>
+						<canvas id="canvas">
+
+						</canvas>
 					</section>
-					<section class="control">
+					<section class="control" v-class="control">
 						<span class="menu"></span>
 						<span class="home"></span>
 						<span class="back"></span>
 					</section>
 				</section>
 				<section class="buttons">
-					<span class="v-up"></span>
-					<span class="v-down"></span>
-					<span class="power"></span>
+					<span class="v-up" ></span>
+					<span class="v-down" ></span>
+					<span class="power"  v-on="click: switchScreen"></span>
 				</section>
 			</section>
 		</main>
