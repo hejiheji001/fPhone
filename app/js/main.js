@@ -15,64 +15,46 @@ Vue.filter('numberToBattery', function (level) {
 	return percent;
 });
 
-var canvasUtils = function(canvas, params){
-	this.canvas = canvas;
+var doMethod = function(funcName, funcParent){
+	funcParent[funcName].apply(funcParent, Array.prototype.slice.call(arguments, 2)[0]);
+};
 
+var canvasUtils = function(canvas, params){
 	var context = canvas.getContext(params['type'] || "2d");
 
-	for(var key in params.attr){
-		canvas[key] = params.attr[key];
+	for(var attr in params.attr){
+		canvas[attr] = params.attr[attr];
 	}
 
-	for(var key in params.style){
-		canvas.style[key] = params.style[key];
+	for(var style in params.style){
+		canvas.style[style] = params.style[style];
 	}
+
+	this.canvas = canvas;
 
 	this.fadeIn = function(){
 		$(canvas).fadeIn();
-	}
+	};
 
 	this.fadeOut = function(){
 		$(canvas).fadeOut();
-	}
-
-	// // this.doCallback = function(fn, args){
-	// // 	fn.apply(this, args);
-	// // }
-
-	// this.callback = function(){
-	// 	// var length = arguments.length;
-	// 	// ctx["drawImage"]();
-	// }
+	};
 
 	this.execute = function(){
 		if(params.method){
-			var fn = context[params.method.name];
+			var funcName = params.method.name;
 			var args = params.method.args;
-
-			function x(){
-				x.apply(fn, args);
-			}
-
-			x();
-
+			doMethod(funcName, context, args);
 		}else{
 			throw "No Method Defined!";
 		}
-
-		// context.apply(context["drawImage"], [image, 0, 0])
-		// context[params.method.name].apply(params.method.args);
-		//doCallback(context[params.method.name], params.method.args);
-	}
-}
-
+	};
+};
 
 var drawScreenImg = function(){
 	var image = document.getElementById('bgi');
 	var draw = function(){
 		var canvas = document.getElementById('canvas');
-
-
 		var screenCanvas = new canvasUtils(canvas, {
 			type: "2d",
 			attr: {
@@ -89,15 +71,16 @@ var drawScreenImg = function(){
 		});
 		screenCanvas.execute();
 		return screenCanvas;
-	}
+	};
+
 	if(image.complete){
 		return draw();
 	}else{
 		image.onload = function(){
 			return draw();
-		}
+		};
 	}
-}
+};
 
 var requestAnimationFrame = function(){
 	var lastTime = 0;
@@ -124,7 +107,7 @@ var requestAnimationFrame = function(){
 			clearTimeout(id);
 		};
 	}
-}
+};
 
 var init = function(){
 	var canvasUtilInstance = drawScreenImg();
