@@ -26,12 +26,12 @@
 						<span class="speaker">...........</span>
 						<span class="something"> </span>
 					</section>
-					<section id="wholeScreen">
-						<section class="taskbar" v-class="myScreen">
-							<section class="signalLine">
+					<section id="myScreen">
+						<section class="taskbar" v-class="offorlock">
+							<span class="signalLine">
 								<span class="network">4G</span>
 								<span class="signal"></span>
-							</section>
+							</span>
 							<span id="positive"></span>
 							<span class="battery" id="empty"></span>
 							<span class="battery" id="full" v-style="width: w + 'px',background: c"></span>
@@ -98,6 +98,10 @@
 									</tr>
 								</tbody>
 							</table>
+						<section class="lockScreen" v-class="offorlock">
+							<p class="time" v-text="date | dateToTime 1"></p>
+							<p class="date" v-text="date | dateToDate"></p>
+							<p class="carrier">FireAwayH</p>
 						</section>
 						<canvas id="canvas">
 							<img src="./img/screen.jpg" id="bgi">

@@ -10,6 +10,17 @@ Vue.filter('dateToTime', function (date, isBlink) {
 	return hour + (blink === 0 ? " " : ":") + minu;
 });
 
+Vue.filter('dateToDate', function (date) {
+	var dd = date.getDate();
+	var mm = date.getMonth() + 1;
+	var d = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")[date.getDay()];
+
+	dd = dd < 10 ? '0' + dd : dd;
+	mm = mm < 10 ? '0' + mm : mm;
+
+	return mm + "/" + dd + " " + d;
+});
+
 Vue.filter('numberToBattery', function (level) {
 	var percent = (level / 60).toFixed();
 	return percent;
@@ -48,18 +59,33 @@ var canvasUtils = function(canvas, params){
 		this.init(newParams);
 	};
 
-	// TODO: Use globalAlpha instead of Jquery
 	this.fadeIn = function(){
 		// $(canvas).fadeIn();
-		// canvas.style.display = "block";
-		canvas.className = "easeInOut";
 		canvas.style.opacity = 1;
+
+
+		// Works but not smooth
+		// var doWhat = function(op){
+		// 	$("canvas").css("opacity", op);
+		// }
+
+		// var doIt = function(){
+		// 	var op = Number.parseFloat($("canvas").css("opacity"));
+		// 	console.log(op)
+		// 	op += 0.3;
+		// 	if(op > 1){
+		// 		op = 1;
+		// 	}
+		// 	return op;
+		// }
+
+		// var stopWhen = 1;
+
+		// animate(doWhat, doIt, stopWhen);
 	};
 
-	// TODO: Use globalAlpha instead of Jquery
 	this.fadeOut = function(){
 		// $(canvas).fadeOut();
-		// canvas.style.display = "none";
 		canvas.style.opacity = 0;
 	};
 
@@ -150,10 +176,14 @@ var canvasUtils = function(canvas, params){
 
 var drawScreenImg = function(){
 	var image = document.getElementById('bgi');
+
 	var draw = function(){
 		var canvas = document.getElementById('canvas');
 		var cvsW = image.width;
 		var cvsH = image.height;
+
+
+		/////////////////////////////////Draw BGI/////////////////////////////////
 
 		// Put image into canvas
 		// var screenCanvas = new canvasUtils(canvas, {
@@ -249,6 +279,12 @@ var drawScreenImg = function(){
 		ctx.setTransform(1,0,0,1,-100,0);
 		screenCanvas.pointA2B(points, "curve", args);
 
+		/////////////////////////////////Draw Locker/////////////////////////////////
+
+
+
+
+
 		return screenCanvas;
 	};
 
@@ -261,7 +297,18 @@ var drawScreenImg = function(){
 	}
 };
 
-var requestAnimationFrame = function(){
+var animate = function(doWhat, doIt, stopWhen){
+	var exe = function() {
+		var flag = doIt();
+		doWhat(flag);
+		if(flag != stopWhen){
+			requestAnimationFrame(exe);
+		}
+	};
+	exe();
+};
+
+var newRequestAnimationFrame = function(){
 	var lastTime = 0;
 	var vendors = ['webkit', 'moz'];
 	for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
@@ -293,7 +340,7 @@ var init = function(){
 	var frame = new Vue({
 		el: '.frame',
 		data: {
-			myScreen: 'off',
+			offorlock: 'off',
 			control: 'dim',
 			date: new Date(),
 			w: 16,
@@ -301,16 +348,17 @@ var init = function(){
 		},
 		methods: {
 			switchScreen: function(e){
-				e.target
-				if(this.myScreen == 'off'){
-					this.myScreen = 'lock';
+				if(this.offorlock == 'off'){
+					this.offorlock = 'lock';
 					this.control = 'bright';
 					canvasUtilInstance.fadeIn();
 				}else{
-					this.myScreen = 'off';
+					this.offorlock = 'off';
 					this.control = 'dim';
 					canvasUtilInstance.fadeOut();
 				}
+				$("#myScreen section").addClass("anim");
+				$("#canvas").addClass("anim");
 			},
 			getTime: function(){
 				this.date = new Date();
@@ -339,7 +387,7 @@ var init = function(){
 		frame.getTime();
 	}, 1000);
 
-	requestAnimationFrame();
+	newRequestAnimationFrame();
 };
 
 $(function(){
