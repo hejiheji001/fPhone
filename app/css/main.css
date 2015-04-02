@@ -46,6 +46,22 @@ main{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DBDCDE', endColorstr='#EDEEF0',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
 }
 
+.frame span{
+	-moz-transition:all ease-in-out 0.3s;
+	-webkit-transition:all ease-in-out 0.3s;
+	-o-transition:all ease-in-out 0.3s;
+	-ms-transition:all ease-in-out 0.3s;
+	transition: all ease-in-out 0.3s;
+}
+
+.easeInOut{
+	-moz-transition:all ease-in-out 0.3s;
+	-webkit-transition:all ease-in-out 0.3s;
+	-o-transition:all ease-in-out 0.3s;
+	-ms-transition:all ease-in-out 0.3s;
+	transition: all ease-in-out 0.3s;
+}
+
 .panel, .light{
 	background: black;
 	width: calc(28em * 0.98);
@@ -57,6 +73,7 @@ main{
 
 .light{
 	position: absolute;
+	z-index: 99;
 	background: -moz-linear-gradient(195deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
 	background: -webkit-gradient(linear,102.7 98, 99 99, color-stop(0%, rgba(255, 255, 255, 0.1)), color-stop(50%, rgb(0, 0, 0)), color-stop(100%, rgba(255, 255, 255, 0)));
 	background: -webkit-linear-gradient(195deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
@@ -76,11 +93,34 @@ main{
 	overflow: hidden;
 }
 
-#myScreen{
+#wholeScreen{
 	width: 24em;
 	height: 42.4em;
 	margin: 0 0 0 1.6em;
 	background: rgb(5, 5, 5);
+}
+
+canvas, .mainScreen{
+	width: 24em;
+	height: 40.4em;
+}
+
+.mainScreen{
+	position: absolute;
+	z-index: 9;
+}
+
+table{
+	width: 100%;
+	height: 100%;
+	border-spacing: 10px;
+	border-collapse: separate;
+}
+
+td{
+	background: red;
+	width: 20%;
+	height: 12.5%;
 }
 
 .taskbar{
@@ -94,11 +134,6 @@ main{
 	opacity: 0;
 	position: absolute;
 	margin: 0.5em;
-	-moz-transition:all ease-in-out 0.3s;
-	-webkit-transition:all ease-in-out 0.3s;
-	-o-transition:all ease-in-out 0.3s;
-	-ms-transition:all ease-in-out 0.3s;
-	transition: all ease-in-out 0.3s;
 }
 
 .signalLine{
@@ -112,13 +147,13 @@ main{
 }
 
 .network{
-	top: -11px;
-	right: 20px;
-	-moz-transform:scale(0.5, 0.5);
-	-webkit-transform:scale(0.5, 0.5);
-	-o-transform:scale(0.5, 0.5);
-	-ms-transform:scale(0.5, 0.5);
-	transform:scale(0.5, 0.5);
+	top: -0.8em;
+	right: 1.5em;
+	-moz-transform:scale(0.4, 0.4);
+	-webkit-transform:scale(0.4, 0.4);
+	-o-transform:scale(0.4, 0.4);
+	-ms-transform:scale(0.4, 0.4);
+	transform:scale(0.4, 0.4);
 }
 
 span.signal{
@@ -170,13 +205,6 @@ span.battery{
 	font-size: 14px;
 }
 
-
-
-canvas{
-	width: 24em;
-	height: 40.4em;
-}
-
 .sensor{
 	width: 5px;
 	height: 5px;
@@ -200,7 +228,7 @@ canvas{
 	width: 52px;
 	height: 8px;
 	left: 12em;
-	line-height: 5px;
+	line-height: 2px;
 	letter-spacing: 1px;
 	border-radius: 50px;
 	background: -webkit-linear-gradient(top, rgba(20, 20, 21, 0.3), rgba(65, 65, 65, 0.1));

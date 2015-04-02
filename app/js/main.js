@@ -50,12 +50,17 @@ var canvasUtils = function(canvas, params){
 
 	// TODO: Use globalAlpha instead of Jquery
 	this.fadeIn = function(){
-		$(canvas).fadeIn();
+		// $(canvas).fadeIn();
+		// canvas.style.display = "block";
+		canvas.className = "easeInOut";
+		canvas.style.opacity = 1;
 	};
 
 	// TODO: Use globalAlpha instead of Jquery
 	this.fadeOut = function(){
-		$(canvas).fadeOut();
+		// $(canvas).fadeOut();
+		// canvas.style.display = "none";
+		canvas.style.opacity = 0;
 	};
 
 
@@ -76,6 +81,7 @@ var canvasUtils = function(canvas, params){
 		// context.moveTo((x + a) / ratioX, y / ratioY); //从椭圆的右端点开始绘制
 		// context.moveTo(x / ratioX, (y + b) / ratioY); //从椭圆的下端点开始绘制
 
+		// Hint: 测试表明永远从X轴的正方向作为起点开始画圆
 		// context.arc(x, y, radius, starAngle,endAngle, anticlockwise)
 		// x:圆心的x坐标
 		// y:圆心的y坐标
@@ -86,6 +92,7 @@ var canvasUtils = function(canvas, params){
 
 		// context.closePath();
 		// context.fillStyle = 'rgba(0,255,0,0.25)';
+
 		context.fill();
 		context.stroke();
 		context.restore();
@@ -93,13 +100,13 @@ var canvasUtils = function(canvas, params){
 
 	this.pointA2B = function(points, type, args){
 		switch(type){
-			case "line":
-				context.beginPath();
-				context.moveTo(20, 20);
-				context.lineTo(20, 20);
-				this.update(args);
-				context.closePath();
-				this.execute();
+			case "line": //TODO
+				// context.beginPath();
+				context.moveTo(points.A.x, points.A.y);
+				context.lineTo(points.B.x, points.B.y);
+				// this.update(args);
+				// context.closePath();
+				// this.execute();
 				break;
 			case "curve":
 				var A = points.A;
@@ -110,12 +117,21 @@ var canvasUtils = function(canvas, params){
 				var a = x - A.x;
 				var b = y - C.y;
 				var p = {
-					rate: 1,
-					anticlock: true
+					rate: points.rate || 1,
+					anticlock: points.anticlock || true
 				};
 
 				this.update(args);
 				this.evenCompEllipse(x, y, a, b, p);
+				break;
+			case "arc": // TODO
+				// this.update(args);
+				// context.beginPath();
+				// context.lineTo(points.A.x, points.A.y);          // 创建水平线
+				context.arcTo((points.B.x-points.A.x)/2, (points.B.y - points.A.y) / 2, (points.B.x-points.A.x)/2, (points.B.y - points.A.y) / 2 + 100, 100);
+				// context.lineTo(points.B.x, points.B.y);
+				// context.stroke();
+				// context.restore();
 				break;
 		}
 	};
@@ -167,7 +183,7 @@ var drawScreenImg = function(){
 				height: cvsH
 			},
 			cvsStyle: {
-				display: "block"
+				opacity: 0
 			},
 			ctxAttr: {
 				fillStyle: linerBGI
@@ -180,6 +196,8 @@ var drawScreenImg = function(){
 
 		screenCanvas.init();
 		screenCanvas.execute();
+
+		var ctx = screenCanvas.context;
 
 		// Add some half ellipse
 		var separation = cvsW * 0.5;
@@ -199,19 +217,16 @@ var drawScreenImg = function(){
 		};
 
 		var ellipseStyle = canvas.getContext('2d').createLinearGradient(cvsW / 2, 0, cvsW / 2, cvsH);
-		ellipseStyle.addColorStop(0, "rgba(41, 255, 0, 0.29)");
-		ellipseStyle.addColorStop(0.5, "rgba(0, 139, 255, 0.29)");
-		ellipseStyle.addColorStop(1, "rgba(161, 0, 255, 0.29)");
+		ellipseStyle.addColorStop(0, "rgba(41, 255, 0, 0.3)");
+		ellipseStyle.addColorStop(0.5, "rgba(0, 139, 255, 0.3)");
+		ellipseStyle.addColorStop(1, "rgba(161, 0, 255, 0.3)");
 
 		var args = {
 			ctxAttr: {
 				fillStyle: ellipseStyle,
-				strokeStyle: "rgba(41, 255, 0, 0.25)"
+				strokeStyle: "rgba(0, 0, 0, 0)"
 			}
 		};
-		screenCanvas.pointA2B(points, "curve", args);
-
-		var ctx = screenCanvas.context;
 
 		// ctx.translate(100,0);
 		// context.transform(a,b,c,d,e,f);
@@ -278,7 +293,7 @@ var init = function(){
 	var frame = new Vue({
 		el: '.frame',
 		data: {
-			taskbar: 'off',
+			myScreen: 'off',
 			control: 'dim',
 			date: new Date(),
 			w: 16,
@@ -286,12 +301,13 @@ var init = function(){
 		},
 		methods: {
 			switchScreen: function(e){
-				if(this.taskbar == 'off'){
-					this.taskbar = 'lock';
+				e.target
+				if(this.myScreen == 'off'){
+					this.myScreen = 'lock';
 					this.control = 'bright';
 					canvasUtilInstance.fadeIn();
 				}else{
-					this.taskbar = 'off';
+					this.myScreen = 'off';
 					this.control = 'dim';
 					canvasUtilInstance.fadeOut();
 				}
