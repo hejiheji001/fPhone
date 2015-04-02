@@ -27,15 +27,20 @@
 						<span class="something"> </span>
 					</section>
 					<section id="myScreen">
-						<section class="taskbar" v-class="taskbar">
-							<section class="signalLine">
+						<section class="taskbar" v-class="offorlock">
+							<span class="signalLine">
 								<span class="network">4G</span>
 								<span class="signal"></span>
-							</section>
+							</span>
 							<span id="positive"></span>
 							<span class="battery" id="empty"></span>
 							<span class="battery" id="full" v-style="width: w + 'px',background: c"></span>
 							<span class="clock" id="clock" v-text="date | dateToTime 1"></span>
+						</section>
+						<section class="lockScreen" v-class="offorlock">
+							<p class="time" v-text="date | dateToTime 1"></p>
+							<p class="date" v-text="date | dateToDate"></p>
+							<p class="carrier">FireAwayH</p>
 						</section>
 						<canvas id="canvas">
 							<img src="./img/screen.jpg" id="bgi">
